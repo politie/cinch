@@ -5,6 +5,6 @@
 
 Contributors
 ============
-* Paul Middelkoop
+* Paul Middelkoop [@GitHub](http://github.com/paulmiddelkoop)
 * Jethro Bakker [@GitHub](http://github.com/jethrobakker)
 
