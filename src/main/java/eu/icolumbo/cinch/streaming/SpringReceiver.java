@@ -15,19 +15,20 @@ public abstract class SpringReceiver<T> extends Receiver<T> {
 
     private final Class<?> springConfigurationClass;
 
-    public SpringReceiver(Class<?> springConfigurationClass) {
+    public SpringReceiver(StreamingCinchContext cinchContext) {
         super(StorageLevel.MEMORY_ONLY());
 
-        this.springConfigurationClass = springConfigurationClass;
+        this.springConfigurationClass = cinchContext.getSpringConfigurationClass();
     }
 
     @Override
     public void onStart() {
+        SpringContext.getContext(springConfigurationClass).getAutowireCapableBeanFactory().autowireBean(this);
+
         new Thread() {
             @Override
             public void run() {
                 try {
-                    SpringContext.getContext(springConfigurationClass).getAutowireCapableBeanFactory().autowireBean(SpringReceiver.this);
                     receive();
                 } catch (Exception e) {
                     log.error("Error while receiving data", e);
