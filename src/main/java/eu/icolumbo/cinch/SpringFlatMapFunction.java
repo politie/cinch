@@ -8,9 +8,9 @@ import org.apache.spark.api.java.function.FlatMapFunction;
 public class SpringFlatMapFunction<T, R> implements FlatMapFunction<T, R> {
 
 	private final Class<?> springConfigurationClass;
-	private final Class<? extends FlatMapFunction> springBeanClass;
+	private final Class<? extends FlatMapFunction<T, R>> springBeanClass;
 
-	public SpringFlatMapFunction(Class<?> springConfigurationClass, Class<? extends FlatMapFunction> springBeanClass) {
+	SpringFlatMapFunction(Class<?> springConfigurationClass, Class<? extends FlatMapFunction<T, R>> springBeanClass) {
 		this.springConfigurationClass = springConfigurationClass;
 		this.springBeanClass = springBeanClass;
 	}

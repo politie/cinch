@@ -2,6 +2,7 @@ package eu.icolumbo.cinch;
 
 import org.apache.spark.api.java.function.FlatMapFunction;
 import org.apache.spark.api.java.function.Function;
+import org.apache.spark.api.java.function.VoidFunction;
 import org.springframework.context.support.AbstractApplicationContext;
 
 /**
@@ -28,6 +29,10 @@ public class CinchContext {
 
     public <T1, R> Function<T1, R>  function(Class<? extends Function<T1, R>> springBeanClass) {
         return new SpringFunction<>(springConfigurationClass, springBeanClass);
+    }
+
+    public <T> VoidFunction<T>  voidFunction(Class<? extends VoidFunction<T>> springBeanClass) {
+        return new SpringVoidFunction<>(springConfigurationClass, springBeanClass);
     }
 
     public <T, R> FlatMapFunction<T, R> flatMapFunction(Class<? extends FlatMapFunction<T, R>> springBeanClass) {

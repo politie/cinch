@@ -25,7 +25,7 @@ public class StreamingCinchContext extends CinchContext {
         cinchJob.execute(this);
     }
 
-    public <T> SpringForeachRddFunction<T> foreachRddFunction(Class<? extends VoidFunction<T>> springBeanClass) {
-        return new SpringForeachRddFunction<>(getSpringConfigurationClass(), springBeanClass);
+    public <T> ForeachRddFunction<T> foreachRddFunction(Class<? extends VoidFunction<T>> springBeanClass) {
+        return new ForeachRddFunction<>(voidFunction(springBeanClass));
     }
 }

@@ -10,7 +10,7 @@ public class SpringVoidFunction<T> implements VoidFunction<T> {
     private final Class<?> springConfigurationClass;
     private final Class<? extends VoidFunction> springBeanClass;
 
-    public SpringVoidFunction(Class<?> springConfigurationClass, Class<? extends VoidFunction> springBeanClass) {
+    SpringVoidFunction(Class<?> springConfigurationClass, Class<? extends VoidFunction> springBeanClass) {
         this.springConfigurationClass = springConfigurationClass;
         this.springBeanClass = springBeanClass;
     }

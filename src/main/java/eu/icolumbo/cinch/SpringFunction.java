@@ -10,7 +10,7 @@ public class SpringFunction<T1, R> implements Function<T1, R> {
 	private final Class<?> springConfigurationClass;
 	private final Class<? extends Function<T1, R>> springBeanClass;
 
-	public SpringFunction(Class<?> springConfigurationClass, Class<? extends Function<T1, R>> springBeanClass) {
+	SpringFunction(Class<?> springConfigurationClass, Class<? extends Function<T1, R>> springBeanClass) {
 		this.springConfigurationClass = springConfigurationClass;
 		this.springBeanClass = springBeanClass;
 	}
