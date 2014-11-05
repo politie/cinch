@@ -16,6 +16,9 @@ public abstract class StreamingCinchJob extends AbstractCinchJob<StreamingCinchC
         this.durationInMillis = durationInMillis;
     }
 
+	/**
+	 * Execute cinch job with context and spark conf.
+	 */
     @Override
     public void execute(StreamingCinchContext cinchContext, SparkConf sparkConf)  {
         JavaStreamingContext streamingContext = new JavaStreamingContext(sparkConf, new Duration(durationInMillis));

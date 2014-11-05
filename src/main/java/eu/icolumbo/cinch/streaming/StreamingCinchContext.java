@@ -10,6 +10,9 @@ import org.springframework.context.support.AbstractApplicationContext;
  */
 public class StreamingCinchContext extends CinchContext {
 
+	/**
+	 * Create a new cinch context,
+	 */
     public static CinchContext springJavaConfiguration(Class<?> springConfigurationClass) {
         return new StreamingCinchContext(springConfigurationClass);
     }
@@ -18,6 +21,9 @@ public class StreamingCinchContext extends CinchContext {
         super(springConfigurationClass);
     }
 
+	/**
+	 * Executes your streaming job from the spring context.
+	 */
     public void executeJob() {
         AbstractApplicationContext springContext = SpringContext.getContext(getSpringConfigurationClass());
         StreamingCinchJob cinchJob = springContext.getBean(StreamingCinchJob.class);
@@ -25,6 +31,9 @@ public class StreamingCinchContext extends CinchContext {
         cinchJob.execute(this);
     }
 
+	/**
+	 * Create a new ForeachRddFunction, which implements Spark's VoidFunction interface.
+	 */
     public <T> ForeachRddFunction<T> foreachRddFunction(Class<? extends VoidFunction<T>> springBeanClass) {
         return new ForeachRddFunction<>(voidFunction(springBeanClass));
     }
