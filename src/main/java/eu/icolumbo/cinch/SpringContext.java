@@ -13,6 +13,9 @@ public class SpringContext {
 
     private static Map<Class<?>, AbstractApplicationContext> CONTEXTS = new HashMap<>();
 
+	/**
+	 * Get application context for configuration class.
+	 */
     public static synchronized AbstractApplicationContext getContext(Class<?> springConfigurationClass) {
         if (!CONTEXTS.containsKey(springConfigurationClass)) {
             AbstractApplicationContext context = new AnnotationConfigApplicationContext(springConfigurationClass);

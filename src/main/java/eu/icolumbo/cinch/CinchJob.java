@@ -8,6 +8,9 @@ import org.apache.spark.api.java.JavaSparkContext;
  */
 public abstract class CinchJob extends AbstractCinchJob<CinchContext> {
 
+	/**
+	 * Execute cinch job with context.
+	 */
     @Override
     public void execute(CinchContext cinchContext, SparkConf sparkConf) {
         JavaSparkContext sparkContext = new JavaSparkContext(sparkConf);
