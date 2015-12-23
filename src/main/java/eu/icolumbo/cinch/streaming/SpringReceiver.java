@@ -32,6 +32,7 @@ public abstract class SpringReceiver<T> extends Receiver<T> {
                     receive();
                 } catch (Exception e) {
                     log.error("Error while receiving data", e);
+					restart("Restaring Receiver after " + e.getMessage());
                 }
             }
         }.start();
