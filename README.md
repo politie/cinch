@@ -102,4 +102,5 @@ Contributors
 ============
 * Paul Middelkoop [@GitHub](http://github.com/paulmiddelkoop)
 * Jethro Bakker [@GitHub](http://github.com/jethrobakker)
+* Jeroen van Wilgenburg [@GitHub](http://github.com/jvwilge)
 
